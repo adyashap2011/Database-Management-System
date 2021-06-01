@@ -1,0 +1,117 @@
+REM   Script: Session 03
+REM   SET AND AGGREGATE
+
+create table CSE_E1 ( reg_no number(20), name varchar(30), age number(4), percentage number (4), gender varchar(10));
+
+insert into CSE_E1 values(1000,'Adyasha',21,92,'F');
+
+insert into CSE_E1 values(1001,'Anoushka',20,95,'F');
+
+insert into CSE_E1 values(1002,'Anish',22,98,'M');
+
+insert into CSE_E1 values(1003,'Rahul',21,90,'M');
+
+insert into CSE_E1 values(1004,'Shahbaz',22,99,'M');
+
+insert into CSE_E1 values(1005,'Yudhajeet',20,98,'M');
+
+insert into CSE_E1 values(1006,'Aayush',22,91,'M');
+
+insert into CSE_E1 values(1007,'Aakash',20,82,'M');
+
+insert into CSE_E1 values(1008,'Rohit',22,85,'M');
+
+insert into CSE_E1 values(1009,'Shantanu',22,100,'M');
+
+ select * from CSE_E1;
+
+create table CSE_E2 (reg_no number(20), name varchar (30), age number(3), percentage number(4), gender varchar(10));
+
+insert into CSE_E2 values(1000,'Adyasha',21,92,'F');
+
+insert into CSE_E2 values(1010,'Anusha',20,96,'F');
+
+insert into CSE_E2 values(1002,'Anish',22,98,'M');
+
+insert into CSE_E2 values(1011,'Stuti',20,97,'F');
+
+insert into CSE_E2 values(1004,'Shahbaz',22,99,'M');
+
+insert into CSE_E2 values(1012,'Nikita',21,87,'F');
+
+insert into CSE_E2 values(1013,'Anushka',20,78,'F');
+
+insert into CSE_E2 values(1014,'Ritesh',20,76,'M');
+
+insert into CSE_E2 values(1015,'Rishabh',23,72,'M');
+
+insert into CSE_E2 values(1016,'Isha',22,60,'F');
+
+select * from CSE_E2;
+
+SELECT * FROM CSE_E1 UNION SELECT * FROM CSE_E2;
+
+SELECT * FROM CSE_E1 UNION ALL SELECT * FROM CSE_E2;
+
+SELECT * FROM CSE_E1 INTERSECT SELECT * FROM CSE_E2;
+
+SELECT * FROM CSE_E2 MINUS SELECT * FROM CSE_E1;
+
+SELECT * FROM CSE_E1 MINUS SELECT * FROM CSE_E2;
+
+SELECT * FROM CSE_E1 WHERE AGE=22 UNION SELECT * FROM CSE_E2 WHERE AGE=22;
+
+SELECT * FROM CSE_E1 WHERE AGE=20 UNION SELECT * FROM CSE_E2 WHERE AGE=21;
+
+SELECT * FROM CSE_E1 WHERE GENDER='F' UNION SELECT * FROM CSE_E2 WHERE GENDER='F';
+
+SELECT * FROM CSE_E1 WHERE GENDER='M' UNION SELECT * FROM CSE_E2 WHERE GENDER='F';
+
+SELECT * FROM CSE_E1 WHERE GENDER='M' UNION SELECT * FROM CSE_E2 WHERE GENDER='M';
+
+SELECT COUNT(*) from CSE_E1;
+
+SELECT COUNT(*) from CSE_E2;
+
+SELECT COUNT(*) from CSE_E2;
+
+SELECT COUNT(*) from CSE_E2 WHERE PERCENTAGE>90;
+
+SELECT COUNT(*) from CSE_E1 WHERE PERCENTAGE>89;
+
+SELECT COUNT(*) from CSE_E1 WHERE PERCENTAGE<89;
+
+SELECT SUM(PERCENTAGE) from CSE_E1 ;
+
+SELECT SUM(PERCENTAGE) from CSE_E2 WHERE GENDER='F' ;
+
+SELECT AVG(PERCENTAGE) from CSE_E1 WHERE GENDER='F' ;
+
+SELECT AVG(AGE) from CSE_E1 WHERE PERCENTAGE > 90 ;
+
+SELECT AVG(PERCENTAGE) from CSE_E2 WHERE AGE=22 ;
+
+SELECT MIN(PERCENTAGE) from CSE_E1 ;
+
+SELECT MIN(PERCENTAGE) from CSE_E2;
+
+SELECT MIN(PERCENTAGE) from CSE_E2;
+
+SELECT MIN(PERCENTAGE) from CSE_E2;
+
+SELECT MIN(PERCENTAGE) from CSE_E2 WHERE GENDER='M';
+
+SELECT MIN(PERCENTAGE) from CSE_E1 WHERE AGE >21;
+
+SELECT MAX(PERCENTAGE) from CSE_E2 WHERE AGE <21;
+
+SELECT MAX(PERCENTAGE) from CSE_E1 WHERE AGE=22;
+
+SELECT MAX(PERCENTAGE) from CSE_E1 WHERE GENDER='F';
+
+SELECT MAX(PERCENTAGE) from (SELECT PERCENTAGE FROM CSE_E1 UNION SELECT PERCENTAGE FROM CSE_E2);
+
+SELECT MIN(PERCENTAGE) from (SELECT PERCENTAGE FROM CSE_E1 UNION SELECT PERCENTAGE FROM CSE_E2);
+
+SELECT AVG(PERCENTAGE) from (SELECT PERCENTAGE FROM CSE_E1 UNION SELECT PERCENTAGE FROM CSE_E2);
+

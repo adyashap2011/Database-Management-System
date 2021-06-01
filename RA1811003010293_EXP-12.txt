@@ -1,0 +1,69 @@
+           
+
+SQL> create table studentdb(regno number(20), AI number(5), CD number(5), DBMS number(5), FLA number(5), ENGLISH number(5));
+
+Table created.
+
+SQL> insert into studentdb values(1001,20,60,30,87,21);
+
+1 row created.
+
+SQL> insert into studentdb values(1002,80,60,10,20,11);
+
+1 row created.
+
+SQL> insert into studentdb values(1003,78,90,50,61,49);
+
+1 row created.
+
+SQL> insert into studentdb values(1004,40,30,50,21,19);
+
+1 row created.
+
+SQL> insert into studentdb values(1005,77,35,100,41,59);
+
+1 row created.
+
+SQL> select * from studentdb;
+
+     REGNO         AI         CD       DBMS        FLA    ENGLISH               
+---------- ---------- ---------- ---------- ---------- ----------               
+      1001         20         60         30         87         21               
+      1002         80         60         10         20         11               
+      1003         78         90         50         61         49               
+      1004         40         30         50         21         19               
+      1005         77         35        100         41         59               
+
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2     student studentdb%rowtype;
+  3     total float;
+  4     average float;
+  5     cursor c is select * from studentdb;
+  6     begin
+  7     dbms_output.put_line('Students with pass mark:');
+  8     for student in c
+  9     loop
+ 10     total:=student.AI+student.CD+student.DBMS+student.FLA+student.ENGLISH;
+ 11     average:=total/5;
+ 12     if average>50
+ 13     then
+ 14     dbms_output.put_line('Reg No: '||student.regno||' Average: '||average);
+ 15     end if;
+ 16     end loop;
+ 17     end;
+ 18     /
+Students with pass mark:                                                        
+Reg No: 1003 Average: 65.6                                                      
+Reg No: 1005 Average: 62.4                                                      
+
+PL/SQL procedure successfully completed.
+
+SQL> commit
+  2  /
+
+Commit complete.
+
+SQL> spool out

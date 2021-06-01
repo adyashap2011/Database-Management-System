@@ -1,0 +1,1105 @@
+
+
+SQL> select * from IT;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1003 Rahul                                  23 M                          
+Hyderabad                                                                       
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+      1008 Yudhajeet                              24 M                          
+Bangalore                                                                       
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+
+11 rows selected.
+
+SQL> select initcap(empname) from IT;
+
+INITCAP(EMPNAME)                                                                
+------------------------------                                                  
+Adyasha                                                                         
+Anish                                                                           
+Anoushka                                                                        
+Rahul                                                                           
+Nikita                                                                          
+Anusha                                                                          
+Stuti                                                                           
+Rishabh                                                                         
+Yudhajeet                                                                       
+Shahbaz                                                                         
+Ritesh                                                                          
+
+11 rows selected.
+
+SQL> select initcap(empname) as empname from IT;
+
+EMPNAME                                                                         
+------------------------------                                                  
+Adyasha                                                                         
+Anish                                                                           
+Anoushka                                                                        
+Rahul                                                                           
+Nikita                                                                          
+Anusha                                                                          
+Stuti                                                                           
+Rishabh                                                                         
+Yudhajeet                                                                       
+Shahbaz                                                                         
+Ritesh                                                                          
+
+11 rows selected.
+
+SQL> select initcap(city) as city from IT;
+
+CITY                                                                            
+----------------------------------------                                        
+Cuttack                                                                         
+Kolkata                                                                         
+Delhi                                                                           
+Hyderabad                                                                       
+Goa                                                                             
+Agra                                                                            
+Chennai                                                                         
+Pune                                                                            
+Bangalore                                                                       
+Darjeeling                                                                      
+Kolkata                                                                         
+
+11 rows selected.
+
+SQL> select upper(empname) as empname from IT;
+
+EMPNAME                                                                         
+------------------------------                                                  
+ADYASHA                                                                         
+ANISH                                                                           
+ANOUSHKA                                                                        
+RAHUL                                                                           
+NIKITA                                                                          
+ANUSHA                                                                          
+STUTI                                                                           
+RISHABH                                                                         
+YUDHAJEET                                                                       
+SHAHBAZ                                                                         
+RITESH                                                                          
+
+11 rows selected.
+
+SQL>  select concat (empname,city) as location from IT;
+
+LOCATION                                                                        
+----------------------------------------------------------------------          
+AdyashaCuttack                                                                  
+Anishkolkata                                                                    
+Anoushkadelhi                                                                   
+RahulHyderabad                                                                  
+NikitaGoa                                                                       
+AnushaAgra                                                                      
+StutiChennai                                                                    
+RishabhPune                                                                     
+YudhajeetBangalore                                                              
+ShahbazDarjeeling                                                               
+Riteshkolkata                                                                   
+
+11 rows selected.
+
+SQL> select concat (empname,concat(' stays in ',city)) as location from IT;
+
+LOCATION                                                                        
+--------------------------------------------------------------------------------
+Adyasha stays in Cuttack                                                        
+Anish stays in kolkata                                                          
+Anoushka stays in delhi                                                         
+Rahul stays in Hyderabad                                                        
+Nikita stays in Goa                                                             
+Anusha stays in Agra                                                            
+Stuti stays in Chennai                                                          
+Rishabh stays in Pune                                                           
+Yudhajeet stays in Bangalore                                                    
+Shahbaz stays in Darjeeling                                                     
+Ritesh stays in kolkata                                                         
+
+11 rows selected.
+
+SQL> select lpad(empname,10,'*') from IT;
+
+LPAD(EMPNAME,10,'*')                                                            
+----------------------------------------                                        
+***Adyasha                                                                      
+*****Anish                                                                      
+**Anoushka                                                                      
+*****Rahul                                                                      
+****Nikita                                                                      
+****Anusha                                                                      
+*****Stuti                                                                      
+***Rishabh                                                                      
+*Yudhajeet                                                                      
+***Shahbaz                                                                      
+****Ritesh                                                                      
+
+11 rows selected.
+
+SQL> select lpad(empname,10,'*') from IT;
+
+LPAD(EMPNAME,10,'*')                                                            
+----------------------------------------                                        
+***Adyasha                                                                      
+*****Anish                                                                      
+**Anoushka                                                                      
+*****Rahul                                                                      
+****Nikita                                                                      
+****Anusha                                                                      
+*****Stuti                                                                      
+***Rishabh                                                                      
+*Yudhajeet                                                                      
+***Shahbaz                                                                      
+****Ritesh                                                                      
+
+11 rows selected.
+
+SQL> select rpad(city,10,'*') from IT;
+
+RPAD(CITY,10,'*')                                                               
+----------------------------------------                                        
+Cuttack***                                                                      
+kolkata***                                                                      
+delhi*****                                                                      
+Hyderabad*                                                                      
+Goa*******                                                                      
+Agra******                                                                      
+Chennai***                                                                      
+Pune******                                                                      
+Bangalore*                                                                      
+Darjeeling                                                                      
+kolkata***                                                                      
+
+11 rows selected.
+
+SQL> select * from IT_SALARY;
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY     RATING                                                           
+---------- ----------                                                           
+IT00                       1000 Adyasha                                         
+     80000                                                                      
+                                                                                
+IT01                       1001 Anish                                           
+    200000                                                                      
+                                                                                
+IT03                       1002 Anoushka                                        
+     90000                                                                      
+                                                                                
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY     RATING                                                           
+---------- ----------                                                           
+IT04                       1003 Rahul                                           
+     60000                                                                      
+                                                                                
+IT02                       1004 Nikita                                          
+     70000                                                                      
+                                                                                
+IT05                       1005 Anusha                                          
+     85000                                                                      
+                                                                                
+
+6 rows selected.
+
+SQL> select ltrim(deptid,'IT') as DeptID from IT_SALARY;
+
+DEPTID                                                                          
+--------------------                                                            
+00                                                                              
+01                                                                              
+02                                                                              
+03                                                                              
+04                                                                              
+05                                                                              
+
+6 rows selected.
+
+SQL> select rtrim(salary,'000') from IT_SALARY;
+
+RTRIM(SALARY,'000')                                                             
+----------------------------------------                                        
+8                                                                               
+2                                                                               
+9                                                                               
+6                                                                               
+7                                                                               
+85                                                                              
+
+6 rows selected.
+
+SQL> select replace(deptid,'IT','DEPARTMENT ID=') as ID from IT_SALARY;
+
+ID                                                                              
+--------------------------------------------------------------------------------
+DEPARTMENT ID=00                                                                
+DEPARTMENT ID=01                                                                
+DEPARTMENT ID=02                                                                
+DEPARTMENT ID=03                                                                
+DEPARTMENT ID=04                                                                
+DEPARTMENT ID=05                                                                
+
+6 rows selected.
+
+SQL> select replace(deptid,'IT','Department ID='),name as ID from IT_SALARY;
+
+REPLACE(DEPTID,'IT','DEPARTMENTID=')                                            
+--------------------------------------------------------------------------------
+ID                                                                              
+----------------------------------------                                        
+Department ID=00                                                                
+Adyasha                                                                         
+                                                                                
+Department ID=01                                                                
+Anish                                                                           
+                                                                                
+Department ID=03                                                                
+Anoushka                                                                        
+                                                                                
+
+REPLACE(DEPTID,'IT','DEPARTMENTID=')                                            
+--------------------------------------------------------------------------------
+ID                                                                              
+----------------------------------------                                        
+Department ID=04                                                                
+Rahul                                                                           
+                                                                                
+Department ID=02                                                                
+Nikita                                                                          
+                                                                                
+Department ID=05                                                                
+Anusha                                                                          
+                                                                                
+
+6 rows selected.
+
+SQL> 
+SQL> select * from IT_SALARY;
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY     RATING                                                           
+---------- ----------                                                           
+IT00                       1000 Adyasha                                         
+     80000                                                                      
+                                                                                
+IT01                       1001 Anish                                           
+    200000                                                                      
+                                                                                
+IT03                       1002 Anoushka                                        
+     90000                                                                      
+                                                                                
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY     RATING                                                           
+---------- ----------                                                           
+IT04                       1003 Rahul                                           
+     60000                                                                      
+                                                                                
+IT02                       1004 Nikita                                          
+     70000                                                                      
+                                                                                
+IT05                       1005 Anusha                                          
+     85000                                                                      
+                                                                                
+
+6 rows selected.
+
+SQL> select substr(empname,3,4) "Substring of name" from IT;
+
+Substring of nam                                                                
+----------------                                                                
+yash                                                                            
+ish                                                                             
+oush                                                                            
+hul                                                                             
+kita                                                                            
+usha                                                                            
+uti                                                                             
+shab                                                                            
+dhaj                                                                            
+ahba                                                                            
+tesh                                                                            
+
+11 rows selected.
+
+SQL> select substr(empname,-2,6) "Substring of name from opposite end" from IT;
+
+Substrin                                                                        
+--------                                                                        
+ha                                                                              
+sh                                                                              
+ka                                                                              
+ul                                                                              
+ta                                                                              
+ha                                                                              
+ti                                                                              
+bh                                                                              
+et                                                                              
+az                                                                              
+sh                                                                              
+
+11 rows selected.
+
+SQL> select length(empname) as Length from IT;
+
+    LENGTH                                                                      
+----------                                                                      
+         7                                                                      
+         5                                                                      
+         8                                                                      
+         5                                                                      
+         6                                                                      
+         6                                                                      
+         5                                                                      
+         7                                                                      
+         9                                                                      
+         7                                                                      
+         6                                                                      
+
+11 rows selected.
+
+SQL> select * from IT;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1003 Rahul                                  23 M                          
+Hyderabad                                                                       
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+      1008 Yudhajeet                              24 M                          
+Bangalore                                                                       
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+
+11 rows selected.
+
+SQL> 
+SQL> select instr(empname,'a') "Occurences of letter A" from IT;
+
+Occurences of letter A                                                          
+----------------------                                                          
+                     4                                                          
+                     0                                                          
+                     8                                                          
+                     2                                                          
+                     6                                                          
+                     6                                                          
+                     0                                                          
+                     5                                                          
+                     5                                                          
+                     3                                                          
+                     0                                                          
+
+11 rows selected.
+
+SQL> select instr(empname,'S') "Occurences of letter A" from IT;
+
+Occurences of letter A                                                          
+----------------------                                                          
+                     0                                                          
+                     0                                                          
+                     0                                                          
+                     0                                                          
+                     0                                                          
+                     0                                                          
+                     1                                                          
+                     0                                                          
+                     0                                                          
+                     1                                                          
+                     0                                                          
+
+11 rows selected.
+
+SQL> update IT_SALARY set RATING=8 where empid=1000;
+
+1 row updated.
+
+SQL> update IT_SALARY set RATING=5 where empid=1001;
+
+1 row updated.
+
+SQL> update IT_SALARY set RATING=7 where empid=1002;
+
+1 row updated.
+
+SQL> update IT_SALARY set RATING=4 where empid=1003;
+
+1 row updated.
+
+SQL> update IT_SALARY set RATING=2 where empid=1004;
+
+1 row updated.
+
+SQL> update IT_SALARY set RATING=9 where empid=1005;
+
+1 row updated.
+
+SQL> select * from IT_SALARY;
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY     RATING                                                           
+---------- ----------                                                           
+IT00                       1000 Adyasha                                         
+     80000          8                                                           
+                                                                                
+IT01                       1001 Anish                                           
+    200000          5                                                           
+                                                                                
+IT03                       1002 Anoushka                                        
+     90000          7                                                           
+                                                                                
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY     RATING                                                           
+---------- ----------                                                           
+IT04                       1003 Rahul                                           
+     60000          4                                                           
+                                                                                
+IT02                       1004 Nikita                                          
+     70000          2                                                           
+                                                                                
+IT05                       1005 Anusha                                          
+     85000          9                                                           
+                                                                                
+
+6 rows selected.
+
+SQL> select corr(salary,RATING) as Corr from IT_SALARY;
+
+      CORR                                                                      
+----------                                                                      
+.003688597                                                                      
+
+SQL> select median(age) from IT;
+
+MEDIAN(AGE)                                                                     
+-----------                                                                     
+         24                                                                     
+
+
+SQL> select median(salary) from IT_salary;
+
+MEDIAN(SALARY)                                                                  
+--------------                                                                  
+         82500                                                                  
+
+SQL> select variance(RATING) from IT_SALARY;
+
+VARIANCE(RATING)                                                                
+----------------                                                                
+      6.96666667                                                                
+
+SQL> select variance(salary) from IT_SALARY;
+
+VARIANCE(SALARY)                                                                
+----------------                                                                
+      2637500000                                                                
+
+SQL> select stddev(salary) from IT_SALARY;
+
+STDDEV(SALARY)                                                                  
+--------------                                                                  
+    51356.5965                                                                  
+
+SQL> select trunc(RATING) from IT_SALARY;
+
+TRUNC(RATING)                                                                   
+-------------                                                                   
+            8                                                                   
+            5                                                                   
+            7                                                                   
+            4                                                                   
+            2                                                                   
+            9                                                                   
+
+6 rows selected.
+
+SQL>  select abs(-145) from dual;
+
+ ABS(-145)                                                                      
+----------                                                                      
+       145                                                                      
+
+SQL> select mod(487,13) from dual;
+
+MOD(487,13)                                                                     
+-----------                                                                     
+          6                                                                     
+
+SQL> select power(12,3) from dual;
+
+POWER(12,3)                                                                     
+-----------                                                                     
+       1728                                                                     
+
+SQL>  select sin(60) from dual;
+
+   SIN(60)                                                                      
+----------                                                                      
+-.30481062                                                                      
+
+SQL> select cos(45) from dual;
+
+   COS(45)                                                                      
+----------                                                                      
+.525321989                                                                      
+
+SQL> select tan(30) from dual;
+
+   TAN(30)                                                                      
+----------                                                                      
+-6.4053312                                                                      
+
+SQL> select asin(-0.5) from dual;
+
+ASIN(-0.5)                                                                      
+----------                                                                      
+-.52359878                                                                      
+
+SQL> select acos(-0.3) from dual;
+
+ACOS(-0.3)                                                                      
+----------                                                                      
+1.87548898                                                                      
+
+SQL> select atan(-0.2) from dual;
+
+ATAN(-0.2)                                                                      
+----------                                                                      
+-.19739556                                                                      
+
+SQL>  select sinh(60) from dual;
+
+  SINH(60)                                                                      
+----------                                                                      
+5.7100E+25                                                                      
+
+SQL> select cosh(45) from dual;
+
+  COSH(45)                                                                      
+----------                                                                      
+1.7467E+19                                                                      
+
+SQL> select sqrt(RATING) from IT_SALARY;
+
+SQRT(RATING)                                                                    
+------------                                                                    
+  2.82842712                                                                    
+  2.23606798                                                                    
+  2.64575131                                                                    
+           2                                                                    
+  1.41421356                                                                    
+           3                                                                    
+
+6 rows selected.
+
+SQL> select sqrt(salary) from IT_SALARY;
+
+SQRT(SALARY)                                                                    
+------------                                                                    
+  282.842712                                                                    
+  447.213595                                                                    
+         300                                                                    
+  244.948974                                                                    
+  264.575131                                                                    
+  291.547595                                                                    
+
+6 rows selected.
+
+SQL> select ln(RATING) from IT_SALARY;
+
+LN(RATING)                                                                      
+----------                                                                      
+2.07944154                                                                      
+1.60943791                                                                      
+1.94591015                                                                      
+1.38629436                                                                      
+.693147181                                                                      
+2.19722458                                                                      
+
+6 rows selected.
+
+SQL> select exp(4) from dual;
+
+    EXP(4)                                                                      
+----------                                                                      
+  54.59815                                                                      
+
+SQL> select log(10,RATING) from IT_SALARY;
+
+LOG(10,RATING)                                                                  
+--------------                                                                  
+    .903089987                                                                  
+    .698970004                                                                  
+     .84509804                                                                  
+    .602059991                                                                  
+    .301029996                                                                  
+    .954242509                                                                  
+
+6 rows selected.
+
+SQL> select ceil(RATING) from IT_SALARY;
+
+CEIL(RATING)                                                                    
+------------                                                                    
+           8                                                                    
+           5                                                                    
+           7                                                                    
+           4                                                                    
+           2                                                                    
+           9                                                                    
+
+6 rows selected.
+
+SQL> select floor(RATING) from IT_SALARY;
+
+FLOOR(RATING)                                                                   
+-------------                                                                   
+            8                                                                   
+            5                                                                   
+            7                                                                   
+            4                                                                   
+            2                                                                   
+            9                                                                   
+
+6 rows selected.
+
+SQL> select * from IT;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1003 Rahul                                  23 M                          
+Hyderabad                                                                       
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+      1008 Yudhajeet                              24 M                          
+Bangalore                                                                       
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+
+11 rows selected.
+
+
+SQL> ALTER TABLE IT ADD dob DATE;
+
+Table altered.
+
+SQL> update IT set dob=TO_DATE('2000/10/11','yyyy/mm/dd') where empid=1000;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('2000/05/04','yyyy/mm/dd') where empid=1001;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('1997/02/10','yyyy/mm/dd') where empid=1002;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('1998/05/23','yyyy/mm/dd') where empid=1003;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('1990/08/29','yyyy/mm/dd') where empid=1003;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('1990/08/31','yyyy/mm/dd') where empid=1004;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('1996/10/31','yyyy/mm/dd') where empid=1005;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('1994/11/20','yyyy/mm/dd') where empid=1006;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('2001/08/15','yyyy/mm/dd') where empid=1007;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('2000/12/10','yyyy/mm/dd') where empid=1008;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('1998/09/05','yyyy/mm/dd') where empid=1009;
+
+1 row updated.
+
+SQL> update IT set dob=TO_DATE('1998/01/10','yyyy/mm/dd') where empid=1010;
+
+1 row updated.
+
+SQL> select * from IT;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                     DOB                                    
+---------------------------------------- ---------                              
+      1000 Adyasha                                22 F                          
+Cuttack                                  11-OCT-00                              
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                  04-MAY-00                              
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                    10-FEB-97                              
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                     DOB                                    
+---------------------------------------- ---------                              
+      1003 Rahul                                  23 M                          
+Hyderabad                                29-AUG-90                              
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                      31-AUG-90                              
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                     31-OCT-96                              
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                     DOB                                    
+---------------------------------------- ---------                              
+      1006 Stuti                                  25 F                          
+Chennai                                  20-NOV-94                              
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                     15-AUG-01                              
+                                                                                
+      1008 Yudhajeet                              24 M                          
+Bangalore                                10-DEC-00                              
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                     DOB                                    
+---------------------------------------- ---------                              
+      1009 Shahbaz                                26 M                          
+Darjeeling                               05-SEP-98                              
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                  10-JAN-98                              
+                                                                                
+
+11 rows selected.
+
+SQL> select TO_CHAR(ADD_MONTHS(dob,24)) from IT;
+
+TO_CHAR(ADD_MONTHS                                                              
+------------------                                                              
+11-OCT-02                                                                       
+04-MAY-02                                                                       
+10-FEB-99                                                                       
+29-AUG-92                                                                       
+31-AUG-92                                                                       
+31-OCT-98                                                                       
+20-NOV-96                                                                       
+15-AUG-03                                                                       
+10-DEC-02                                                                       
+05-SEP-00                                                                       
+10-JAN-00                                                                       
+
+11 rows selected.
+
+SQL> select TO_CHAR(ADD_MONTHS(dob,24)) from IT;
+
+TO_CHAR(ADD_MONTHS                                                              
+------------------                                                              
+11-OCT-02                                                                       
+04-MAY-02                                                                       
+10-FEB-99                                                                       
+29-AUG-92                                                                       
+31-AUG-92                                                                       
+31-OCT-98                                                                       
+20-NOV-96                                                                       
+15-AUG-03                                                                       
+10-DEC-02                                                                       
+05-SEP-00                                                                       
+10-JAN-00                                                                       
+
+11 rows selected.
+
+SQL> select MONTHS_BETWEEN(dob,TO_DATE('2000/01/01','yyyy/mm/dd')) from IT;
+
+MONTHS_BETWEEN(DOB,TO_DATE('2000/01/01','YYYY/MM/DD'))                          
+------------------------------------------------------                          
+                                            9.32258065                          
+                                            4.09677419                          
+                                            -34.709677                          
+                                            -112.09677                          
+                                            -112.03226                          
+                                            -38.032258                          
+                                            -61.387097                          
+                                            19.4516129                          
+                                            11.2903226                          
+                                            -15.870968                          
+                                            -23.709677                          
+
+11 rows selected.
+
+
+
+SQL> select MONTHS_BETWEEN(TO_DATE('2000/01/01','yyyy/mm/dd'),dob) from IT;
+
+MONTHS_BETWEEN(TO_DATE('2000/01/01','YYYY/MM/DD'),DOB)                          
+------------------------------------------------------                          
+                                            -9.3225806                          
+                                            -4.0967742                          
+                                            34.7096774                          
+                                            112.096774                          
+                                            112.032258                          
+                                            38.0322581                          
+                                            61.3870968                          
+                                            -19.451613                          
+                                            -11.290323                          
+                                            15.8709677                          
+                                            23.7096774                          
+
+11 rows selected.
+
+SQL> select NEW_TIME(TO_DATE ('09-03-21 10:30:00','mm-dd-yy hh24:mi:ss'),'cst','pst') from dual;
+
+NEW_TIME(                                                                       
+---------                                                                       
+03-SEP-21                                                                       
+
+SQL> select NEXT_DAY(dob,'SUNDAY') "NEXT SUNDAY" from IT;
+
+NEXT SUND                                                                       
+---------                                                                       
+15-OCT-00                                                                       
+07-MAY-00                                                                       
+16-FEB-97                                                                       
+02-SEP-90                                                                       
+02-SEP-90                                                                       
+03-NOV-96                                                                       
+27-NOV-94                                                                       
+19-AUG-01                                                                       
+17-DEC-00                                                                       
+06-SEP-98                                                                       
+11-JAN-98                                                                       
+
+11 rows selected.
+
+SQL> select TO_CHAR(SYSDATE,'mm-dd-yyyy hh24:mi:ss') "Current Time" from dual;
+
+Current Time                                                                    
+-------------------                                                             
+03-09-2021 10:17:34                                                             
+
+SQL> select greatest(dob) from IT;
+
+GREATEST(                                                                       
+---------                                                                       
+11-OCT-00                                                                       
+04-MAY-00                                                                       
+10-FEB-97                                                                       
+29-AUG-90                                                                       
+31-AUG-90                                                                       
+31-OCT-96                                                                       
+20-NOV-94                                                                       
+15-AUG-01                                                                       
+10-DEC-00                                                                       
+05-SEP-98                                                                       
+10-JAN-98                                                                       
+
+11 rows selected.
+
+SQL> select least(dob) from IT;
+
+LEAST(DOB                                                                       
+---------                                                                       
+11-OCT-00                                                                       
+04-MAY-00                                                                       
+10-FEB-97                                                                       
+29-AUG-90                                                                       
+31-AUG-90                                                                       
+31-OCT-96                                                                       
+20-NOV-94                                                                       
+15-AUG-01                                                                       
+10-DEC-00                                                                       
+05-SEP-98                                                                       
+10-JAN-98                                                                       
+
+11 rows selected.
+
+SQL> select round(dob,'MONTH') "Round MOnth" from IT;
+
+Round MOn                                                                       
+---------                                                                       
+01-OCT-00                                                                       
+01-MAY-00                                                                       
+01-FEB-97                                                                       
+01-SEP-90                                                                       
+01-SEP-90                                                                       
+01-NOV-96                                                                       
+01-DEC-94                                                                       
+01-AUG-01                                                                       
+01-DEC-00                                                                       
+01-SEP-98                                                                       
+01-JAN-98                                                                       
+
+11 rows selected.
+
+SQL> select trunc(dob,'YEAR') "Trunc Year" from IT;
+
+Trunc Yea                                                                       
+---------                                                                       
+01-JAN-00                                                                       
+01-JAN-00                                                                       
+01-JAN-97                                                                       
+01-JAN-90                                                                       
+01-JAN-90                                                                       
+01-JAN-96                                                                       
+01-JAN-94                                                                       
+01-JAN-01                                                                       
+01-JAN-00                                                                       
+01-JAN-98                                                                       
+01-JAN-98                                                                       
+
+11 rows selected.
+
+SQL> spool out

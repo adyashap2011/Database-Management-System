@@ -1,0 +1,76 @@
+REM   Script: Session 2
+REM   study of dml commands
+
+create table student(reg_no number(10), student_name varchar(30),age number(2),city varchar(30),gender varchar(10));
+
+desc student
+
+
+insert into student values(01,'Adyasha',21,'Bhubaneswar','female');
+
+insert into student values(02,'Anoushka',20,'kolkata','female');
+
+insert into student values(03,'Anish',21,'Kolkata','male');
+
+insert into student values(04,'Rahul',19,'Bangalore','male');
+
+insert into student values(05,'Anusha',20,'Hyderabad','female');
+
+insert into student values(06,'Khushi',21,'Surat','female');
+
+insert into student values(07,'Ruchira',22,'kolkata','female');
+
+insert into student values(08,'Shahbaz',23,'Delhi','male');
+
+insert into student values(09,'Aiswarya',19,'Gurgaon','female');
+
+insert into student values(10,'Raktima',23,'Lucknow','female');
+
+insert into student values(11,'Soumyashree',24,'Ludhiana','female');
+
+insert into student values(12,'Aayush',21,'Delhi','male');
+
+insert into student values(13,'Yudhajeet',20,'Mumbai','male');
+
+insert into student values(14,'Angad',21,'Delhi','male');
+
+insert into student values(15,'Varun',22,'Jamshedpur','male');
+
+select * from student;
+
+select * from table order by age;
+
+select * from student order by reg_no asc;
+
+select * from student where  city='kolkata';
+
+select * from student where student_name like '%a' and age=21;
+
+select * from student where student_name like 'A%' or age=22;
+
+select * from student order by reg_no desc;
+
+update student set age=24 where student_name='Anusha';
+
+select * from student;
+
+select * from student where gender='female';
+
+insert into student values(16,'Rakesh',23,'Kerala','male');
+
+select * from student;
+
+delete from student where student_name='Varun';
+
+select * from student;
+
+select * from student where not gender='female';
+
+select * from student order by student_name;
+
+select student_name from student group by student_name;
+
+
+
+
+

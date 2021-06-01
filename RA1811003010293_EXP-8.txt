@@ -1,0 +1,162 @@
+SQL> create table perf(pid number(10),empid number(10),deptid varchar (20));
+
+Table created.
+
+SQL> insert into perf values (1,1000,'IT00');
+
+1 row created.
+
+SQL> insert into perf values (2,1006,'CSE00');
+
+1 row created.
+
+SQL> insert into perf values (3,1005,'IT05');
+
+1 row created.
+
+SQL> insert into perf values (4,1009,'CSE03');
+
+1 row created.
+
+SQL> insert into perf values (5,1003,'IT03');
+
+1 row created.
+
+SQL> select * from perf;
+
+       PID      EMPID DEPTID                                                    
+---------- ---------- --------------------                                      
+         1       1000 IT00                                                      
+         2       1006 CSE00                                                     
+         3       1005 IT05                                                      
+         4       1009 CSE03                                                     
+         5       1003 IT03                                                      
+
+SQL> select IT.empid,IT.empname from IT inner join perf on IT.empid=perf.empid;
+
+     EMPID EMPNAME                                                              
+---------- ------------------------------                                       
+      1000 Adyasha                                                              
+      1003 Rahul                                                                
+      1005 Anusha                                                               
+      1006 Stuti                                                                
+      1009 Shahbaz                                                              
+
+SQL> select IT_SALARY.deptid, IT_SALARY.name,perf.pid from IT_SALARY left join perf on perf.deptid=IT_SALARY.deptid;
+
+DEPTID               NAME                                            PID        
+-------------------- ---------------------------------------- ----------        
+IT00                 Adyasha                                           1        
+IT01                 Anish                                                      
+IT02                 Nikita                                                     
+IT03                 Anoushka                                          5        
+IT04                 Rahul                                                      
+IT05                 Anusha                                            3        
+
+6 rows selected.
+
+SQL> select IT_SALARY.deptid, IT_SALARY.name,perf.pid from IT_SALARY left outer join perf on perf.deptid=IT_SALARY.deptid;
+
+DEPTID               NAME                                            PID        
+-------------------- ---------------------------------------- ----------        
+IT00                 Adyasha                                           1        
+IT01                 Anish                                                      
+IT02                 Nikita                                                     
+IT03                 Anoushka                                          5        
+IT04                 Rahul                                                      
+IT05                 Anusha                                            3        
+
+6 rows selected.
+
+SQL> select IT.empid,IT.empname,perf.pid from IT inner join perf on IT.empid=perf.empid;
+
+     EMPID EMPNAME                               PID                            
+---------- ------------------------------ ----------                            
+      1000 Adyasha                                 1                            
+      1003 Rahul                                   5                            
+      1005 Anusha                                  3                            
+      1006 Stuti                                   2                            
+      1009 Shahbaz                                 4                            
+
+SQL> select IT_SALARY.deptid, IT_SALARY.name,perf.pid from IT_SALARY right join perf on perf.deptid=IT_SALARY.deptid;
+
+DEPTID               NAME                                            PID        
+-------------------- ---------------------------------------- ----------        
+IT00                 Adyasha                                           1        
+IT03                 Anoushka                                          5        
+IT05                 Anusha                                            3        
+                                                                       2        
+                                                                       4        
+
+
+SQL> select perf.empid,SALARY.deptid, SALARY.name,perf.pid from SALARY right join perf on perf.deptid=SALARY.deptid;
+
+     EMPID DEPTID                                                               
+---------- ------------------------------                                       
+NAME                                            PID                             
+---------------------------------------- ----------                             
+      1000                                                                      
+                                                  1                             
+                                                                                
+      1006                                                                      
+                                                  2                             
+                                                                                
+      1005                                                                      
+                                                  3                             
+                                                                                
+
+     EMPID DEPTID                                                               
+---------- ------------------------------                                       
+NAME                                            PID                             
+---------------------------------------- ----------                             
+      1009                                                                      
+                                                  4                             
+                                                                                
+      1003                                                                      
+                                                  5                             
+                                                                                
+
+SQL> select perf.empid,SALARY.deptid, SALARY.name,perf.pid from SALARY left join perf on perf.deptid=SALARY.deptid;
+
+no rows selected
+
+SQL> select IT.empid,IT.empname,perf.pid from IT full join perf on perf.empid=IT.empid;
+
+     EMPID EMPNAME                               PID                            
+---------- ------------------------------ ----------                            
+      1000 Adyasha                                 1                            
+      1001 Anish                                                                
+      1002 Anoushka                                                             
+      1003 Rahul                                   5                            
+      1004 Nikita                                                               
+      1005 Anusha                                  3                            
+      1006 Stuti                                   2                            
+      1007 Rishabh                                                              
+      1008 Yudhajeet                                                            
+      1009 Shahbaz                                 4                            
+      1010 Ritesh                                                               
+
+11 rows selected.
+
+SQL> select IT.empid,IT.empname,perf.pid from IT full outer join perf on perf.empid=IT.empid;
+
+     EMPID EMPNAME                               PID                            
+---------- ------------------------------ ----------                            
+      1000 Adyasha                                 1                            
+      1001 Anish                                                                
+      1002 Anoushka                                                             
+      1003 Rahul                                   5                            
+      1004 Nikita                                                               
+      1005 Anusha                                  3                            
+      1006 Stuti                                   2                            
+      1007 Rishabh                                                              
+      1008 Yudhajeet                                                            
+      1009 Shahbaz                                 4                            
+      1010 Ritesh                                                               
+
+11 rows selected.
+
+                                                        
+                                                                                
+
+SQL> spool out

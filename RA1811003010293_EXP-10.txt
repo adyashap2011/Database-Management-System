@@ -1,0 +1,49 @@
+
+SQL> spool lab10 create
+SQL> select * from employee;
+
+EMPID DESIGNATIO     SALARY
+----- ---------- ----------
+01    manager         58000
+02    engineer        32000
+03    clerk           21000
+04    security        15500
+05    security        22500
+06    clerk           18000
+07    engineer        62000
+08    manager         78000
+09    security        22000
+10    security        70000
+
+10 rows selected.
+
+SQL> spool out
+
+SQL> create trigger salarydisp
+  2    before update on employee
+  3    for each row
+  4    when (new.empid is not null)
+  5    declare
+  6    diff number;
+  7    begin
+  8    diff:= :new.salary - :old.salary;
+  9    dbms_output.put_line('Old Salary: ' || :old.salary);
+ 10    dbms_output.put_line('New Salary: ' || :new.salary);
+ 11    dbms_output.put_line('Diff: ' || diff);
+ 12    end;
+ 13    /
+
+Trigger created.
+
+SQL> set serveroutput on;
+SQL> update employee set salary=80000 where empid=09;
+Old Salary: 22000
+New Salary: 80000
+Diff: 58000
+
+
+1 row updated.
+
+SQL> spool out
+
+

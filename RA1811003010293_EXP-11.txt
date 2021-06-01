@@ -1,0 +1,92 @@
+
+SQL> set serveroutput on;
+SQL> declare
+  2  a number:=&1;
+  3  b number;
+  4  procedure fact( x in number, z out number) is
+  5  fac number:=1;
+  6  n number:=x;
+  7  begin
+  8  while n>0 loop
+  9  fac:=n*fac;
+ 10  n:=n-1;
+ 11  end loop;
+ 12  z:=fac;
+ 13  end;
+ 14  begin
+ 15  fact(a,b);
+ 16  dbms_output.put_line('Factorial=' || b);
+ 17  end;
+ 18  /
+Enter value for 1: 5
+old   2: a number:=&1;
+new   2: a number:=5;
+Factorial=120                                                                   
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number:=&1;
+  3  b number;
+  4  procedure sum( x in number, z out number) is
+  5  s number:=0;
+  6  n number:=x;
+  7  begin
+  8  while n>0 loop
+  9  s:=n+s;
+ 10  n:=n-1;
+ 11  end loop;
+ 12  z:=s;
+ 13  end;
+ 14  begin
+ 15  sum(a,b);
+ 16  dbms_output.put_line('Summation=' || b);
+ 17  end;
+ 18  /
+Enter value for 1: 5
+old   2: a number:=&1;
+new   2: a number:=5;
+Summation=15                                                                    
+
+PL/SQL procedure successfully completed.
+
+SQL> DECLARE
+  2  a number:=&1;
+  3  b number:=&2;
+  4  c number:=&3;
+  5  d number;
+  6  PROCEDURE findMax(x IN number, y IN number, z IN number, p OUT number) IS
+  7  BEGIN
+  8  IF (x > y)THEN
+  9  IF (x > z)THEN
+ 10  p:=x;
+ 11  ELSE
+ 12  p:=z;
+ 13  END IF;
+ 14  ELSE
+ 15  IF (y > z)THEN
+ 16  p:=y;
+ 17  ELSE
+ 18  p:=z;
+ 19  END IF;
+ 20  END IF;
+ 21  END;
+ 22  BEGIN
+ 23  findMax(a, b, c, d);
+ 24  dbms_output.put_line(' Max : ' || d);
+ 25  END;
+ 26  /
+Enter value for 1: 5
+old   2: a number:=&1;
+new   2: a number:=5;
+Enter value for 2: 8
+old   3: b number:=&2;
+new   3: b number:=8;
+Enter value for 3: 12
+old   4: c number:=&3;
+new   4: c number:=12;
+Max : 12                                                                        
+
+PL/SQL procedure successfully completed.
+
+SQL> spool out

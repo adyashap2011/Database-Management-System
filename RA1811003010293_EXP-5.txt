@@ -1,0 +1,412 @@
+SQL> create table student(studentid number(20) not null primary key,name varchar(40),age number(3),gender varchar(10));
+create table student(studentid number(20) not null primary key,name varchar(40),age number(3),gender varchar(10))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> create table IT(empid number(10) not null primary key,empname varchar(30),age number(4),gender varchar(10));
+
+Table created.
+
+SQL> insert into IT values(1000,'Adyasha',22,'F');
+
+1 row created.
+
+SQL> insert into IT values(1001,'Anish',21,'M');
+
+1 row created.
+
+SQL> insert into IT values(1002,'Anoushka',20,'F');
+
+1 row created.
+
+SQL> insert into IT values(1003,'Rahul',23,'M');
+
+1 row created.
+
+SQL> insert into IT values(1004,'Nikita',24,'F');
+
+1 row created.
+
+SQL> insert into IT values(1005,'Anusha',20,'F');
+
+1 row created.
+
+SQL> insert into IT values(1006,'Stuti',25,'F');
+
+1 row created.
+
+SQL> insert into IT values(1007,'Rishabh',26,'M');
+
+1 row created.
+
+SQL> insert into IT values(1008,'Yudhajeet',24,'M');
+
+1 row created.
+
+SQL> insert into IT values(1009,'Shahbaz',26,'M');
+
+1 row created.
+
+SQL> select * from IT;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+      1000 Adyasha                                22 F                          
+      1001 Anish                                  21 M                          
+      1002 Anoushka                               20 F                          
+      1003 Rahul                                  23 M                          
+      1004 Nikita                                 24 F                          
+      1005 Anusha                                 20 F                          
+      1006 Stuti                                  25 F                          
+      1007 Rishabh                                26 M                          
+      1008 Yudhajeet                              24 M                          
+      1009 Shahbaz                                26 M                          
+
+10 rows selected.
+
+SQL> create table IT_SALARY(deptid varchar(20) not null primary key,empid number(10) references IT(empid),name varchar(40),salary number(10));
+
+Table created.
+
+SQL> insert into IT_SALARY values('IT00',1000,'Adyasha',80000);
+
+1 row created.
+
+SQL> insert into IT_SALARY values('IT01',1001,'Anish',200000);
+
+1 row created.
+
+SQL> insert into IT_SALARY values('IT03',1002,'Anoushka',90000);
+
+1 row created.
+
+SQL> insert into IT_SALARY values('IT04',1003,'Rahul',60000);
+
+1 row created.
+
+SQL> insert into IT_SALARY values('IT02',1004,'Nikita',70000);
+
+1 row created.
+
+SQL> insert into IT_SALARY values('IT05',1005,'Anusha',85000);
+
+1 row created.
+
+SQL> select * from IT_SALARY;
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY                                                                      
+----------                                                                      
+IT00                       1000 Adyasha                                         
+     80000                                                                      
+                                                                                
+IT01                       1001 Anish                                           
+    200000                                                                      
+                                                                                
+IT03                       1002 Anoushka                                        
+     90000                                                                      
+                                                                                
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY                                                                      
+----------                                                                      
+IT04                       1003 Rahul                                           
+     60000                                                                      
+                                                                                
+IT02                       1004 Nikita                                          
+     70000                                                                      
+                                                                                
+IT05                       1005 Anusha                                          
+     85000                                                                      
+                                                                                
+
+6 rows selected.
+
+SQL> insert into IT values(1010,'Ritesh',24,'M');
+
+1 row created.
+
+SQL> create table SALARY(deptid varchar(30) not null primary key ,empid number(10) refernces IT(empid),name varchar(40),salary number(10));
+create table SALARY(deptid varchar(30) not null primary key ,empid number(10) refernces IT(empid),name varchar(40),salary number(10))
+                                                                              *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> create table SALARY(deptid varchar(30) not null primary key,empid number(10) references IT(empid),name varchar(40),salary number(10));
+
+Table created.
+
+SQL> insert into SALARY values('CSE00',1006,'Stuti',100000);
+
+1 row created.
+
+SQL> insert into SALARY values('CSE01',1007,'Rishabh',300000);
+
+1 row created.
+
+SQL> insert into SALARY values('CSE02',1008,'Yudhajeet',150000);
+
+1 row created.
+
+SQL> insert into SALARY values('CSE03',1009,'Shahbaz',70000);
+
+1 row created.
+
+SQL> insert into SALARY values('CSE04',1010,'Ritesh',96000)
+  2  
+SQL> insert into SALARY values('CSE04',1010,'Ritesh',96000);
+
+1 row created.
+
+SQL> select * from SALARY;
+
+DEPTID                              EMPID                                       
+------------------------------ ----------                                       
+NAME                                         SALARY                             
+---------------------------------------- ----------                             
+CSE00                                1006                                       
+Stuti                                        100000                             
+                                                                                
+CSE01                                1007                                       
+Rishabh                                      300000                             
+                                                                                
+CSE02                                1008                                       
+Yudhajeet                                    150000                             
+                                                                                
+
+DEPTID                              EMPID                                       
+------------------------------ ----------                                       
+NAME                                         SALARY                             
+---------------------------------------- ----------                             
+CSE03                                1009                                       
+Shahbaz                                       70000                             
+                                                                                
+CSE04                                1010                                       
+Ritesh                                        96000                             
+                                                                                
+
+SQL> select empid,,name from IT_SALARY union select empid,name from IT;
+select empid,,name from IT_SALARY union select empid,name from IT
+             *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select empid,name from IT_SALARY union select empid,name from IT;
+select empid,name from IT_SALARY union select empid,name from IT
+                                                    *
+ERROR at line 1:
+ORA-00904: "NAME": invalid identifier 
+
+
+SQL> select empid,,name from IT_SALARY union select empid,empname from IT;
+select empid,,name from IT_SALARY union select empid,empname from IT
+             *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select empid,name from IT_SALARY union select empid,empname from IT;
+
+     EMPID NAME                                                                 
+---------- ----------------------------------------                             
+      1000 Adyasha                                                              
+      1001 Anish                                                                
+      1002 Anoushka                                                             
+      1003 Rahul                                                                
+      1004 Nikita                                                               
+      1005 Anusha                                                               
+      1006 Stuti                                                                
+      1007 Rishabh                                                              
+      1008 Yudhajeet                                                            
+      1009 Shahbaz                                                              
+      1010 Ritesh                                                               
+
+11 rows selected.
+
+SQL> select empid,name from IT_SALARY union all select empid,empname from IT;
+
+     EMPID NAME                                                                 
+---------- ----------------------------------------                             
+      1000 Adyasha                                                              
+      1001 Anish                                                                
+      1002 Anoushka                                                             
+      1003 Rahul                                                                
+      1004 Nikita                                                               
+      1005 Anusha                                                               
+      1000 Adyasha                                                              
+      1001 Anish                                                                
+      1002 Anoushka                                                             
+      1003 Rahul                                                                
+      1004 Nikita                                                               
+
+     EMPID NAME                                                                 
+---------- ----------------------------------------                             
+      1005 Anusha                                                               
+      1006 Stuti                                                                
+      1007 Rishabh                                                              
+      1008 Yudhajeet                                                            
+      1009 Shahbaz                                                              
+      1010 Ritesh                                                               
+
+17 rows selected.
+
+SQL> select empid,name from SALARY intersect selct empid,empname from IT;
+select empid,name from SALARY intersect selct empid,empname from IT
+                                        *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> select empid,name from SALARY intersect select empid,empname from IT;
+
+     EMPID NAME                                                                 
+---------- ----------------------------------------                             
+      1006 Stuti                                                                
+      1007 Rishabh                                                              
+      1008 Yudhajeet                                                            
+      1009 Shahbaz                                                              
+      1010 Ritesh                                                               
+
+SQL> select empid,name from IT_SALARY intersect select empid,empname from IT;
+
+     EMPID NAME                                                                 
+---------- ----------------------------------------                             
+      1000 Adyasha                                                              
+      1001 Anish                                                                
+      1002 Anoushka                                                             
+      1003 Rahul                                                                
+      1004 Nikita                                                               
+      1005 Anusha                                                               
+
+6 rows selected.
+
+SQL> select empid,empnamr from IT minus select empid,name from IT_SALARY;
+select empid,empnamr from IT minus select empid,name from IT_SALARY
+             *
+ERROR at line 1:
+ORA-00904: "EMPNAMR": invalid identifier 
+
+
+SQL> select empid,empname from IT minus select empid,name from IT_SALARY;
+
+     EMPID EMPNAME                                                              
+---------- ----------------------------------------                             
+      1006 Stuti                                                                
+      1007 Rishabh                                                              
+      1008 Yudhajeet                                                            
+      1009 Shahbaz                                                              
+      1010 Ritesh                                                               
+
+
+SQL> select empid,empname from IT minus select empid,name from SALARY;
+
+     EMPID EMPNAME                                                              
+---------- ----------------------------------------                             
+      1000 Adyasha                                                              
+      1001 Anish                                                                
+      1002 Anoushka                                                             
+      1003 Rahul                                                                
+      1004 Nikita                                                               
+      1005 Anusha                                                               
+
+6 rows selected.
+
+SQL> select sum(salary) from IT_SALARY;
+
+SUM(SALARY)                                                                     
+-----------                                                                     
+     585000                                                                     
+
+SQL> select count(*) from IT where age>25;
+
+  COUNT(*)                                                                      
+----------                                                                      
+         2                                                                      
+
+
+SQL>  select count( *) from IT where age>22 and age<25;
+
+  COUNT(*)                                                                      
+----------                                                                      
+         4                                                                      
+
+SQL> select sum(salary) from SALARY;
+
+SUM(SALARY)                                                                     
+-----------                                                                     
+     716000                                                                     
+
+SQL> select avg(salary) from IT_SALARY;
+
+AVG(SALARY)                                                                     
+-----------                                                                     
+      97500                                                                     
+
+SQL> select min(salary) from IT_sALARY;
+
+MIN(SALARY)                                                                     
+-----------                                                                     
+      60000                                                                     
+
+SQL> select max(age) from IT;
+
+  MAX(AGE)                                                                      
+----------                                                                      
+        26                                                                      
+
+SQL> select * from IT order by age desc;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+      1009 Shahbaz                                26 M                          
+      1007 Rishabh                                26 M                          
+      1006 Stuti                                  25 F                          
+      1004 Nikita                                 24 F                          
+      1010 Ritesh                                 24 M                          
+      1008 Yudhajeet                              24 M                          
+      1003 Rahul                                  23 M                          
+      1000 Adyasha                                22 F                          
+      1001 Anish                                  21 M                          
+      1002 Anoushka                               20 F                          
+      1005 Anusha                                 20 F                          
+
+11 rows selected.
+
+SQL> select * from IT order by empid desc;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+      1010 Ritesh                                 24 M                          
+      1009 Shahbaz                                26 M                          
+      1008 Yudhajeet                              24 M                          
+      1007 Rishabh                                26 M                          
+      1006 Stuti                                  25 F                          
+      1005 Anusha                                 20 F                          
+      1004 Nikita                                 24 F                          
+      1003 Rahul                                  23 M                          
+      1002 Anoushka                               20 F                          
+      1001 Anish                                  21 M                          
+      1000 Adyasha                                22 F                          
+
+11 rows selected.
+
+SQL> select count(empid),gender from IT group by gender;
+
+COUNT(EMPID) GENDER                                                             
+------------ ----------                                                         
+           6 M                                                                  
+           5 F                                                                  
+
+SQL> select avg(age) from IT;
+
+  AVG(AGE)                                                                      
+----------                                                                      
+23.1818182                                                                      
+
+SQL> spool out

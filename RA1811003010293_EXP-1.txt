@@ -1,0 +1,44 @@
+REM   Script: ddl dml
+REM   ddl dml
+
+create table cse (roll number(20),sname varchar(30),age number (2));
+
+desc cse
+
+
+alter table cse add (phone number(11));
+
+alter table cse add(branch varchar(20));
+
+desc cse
+
+
+insert into cse values(1,'Adyasha',20,06726767,'CSE');
+
+insert into cse values(2,'Raju',19,9575767,'ECE');
+
+insert into cse values(3,'Shyam',21,0909654,'EEE');
+
+select * from cse;
+
+update cse set branch='CSE' where roll=2;
+
+select * from cse;
+
+update cse set sname='ram' where roll=3;
+
+select * from cse;
+
+delete from cse where roll=2;
+
+select * from cse;
+
+truncate table cse
+
+
+select * from cse;
+
+drop table cse;
+
+select * from cse;
+

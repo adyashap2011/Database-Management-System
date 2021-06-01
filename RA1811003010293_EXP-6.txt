@@ -1,0 +1,605 @@
+SQL> alter table IT add city varchar[40];
+alter table IT add city varchar[40]
+                               *
+ERROR at line 1:
+ORA-00906: missing left parenthesis 
+
+
+SQL> alter table IT add city varchar(40);
+
+Table altered.
+_
+
+SQL> update IT set city='Cuttack' where empid=1000;
+
+1 row updated.
+
+SQL> update IT set city='kolkata' where empid=1001;
+
+1 row updated.
+
+SQL> update IT set city='delhi' where empid=1002;
+
+1 row updated.
+
+SQL> update IT set city='Hyderabad' where empid=1003;
+
+1 row updated.
+
+SQL> update IT set city='Goa' where empid=1004;
+
+1 row updated.
+
+SQL> update IT set city='Agra' where empid=1005;
+
+1 row updated.
+
+SQL> update IT set city='Chennai' where empid=1006;
+
+1 row updated.
+
+SQL> update IT set city='Pune' where empid=1007;
+
+1 row updated.
+
+SQL> update IT set city='Bangalore' where empid=1008;
+
+1 row updated.
+
+SQL> update IT set city='Darjeeling' where empid=1009;
+
+1 row updated.
+
+SQL> update IT set city='kolkata' where empid=1010;
+
+1 row updated.
+
+SQL>  select * from IT;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1003 Rahul                                  23 M                          
+Hyderabad                                                                       
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+      1008 Yudhajeet                              24 M                          
+Bangalore                                                                       
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+
+11 rows selected.
+
+SQL>  update IT set city=null where empid=1003;
+
+1 row updated.
+
+SQL> update IT set city=null where empid=1008;
+
+1 row updated.
+
+SQL> insert into IT values(1011,'Akanksha',34,'M','jaipur');
+
+1 row created.
+
+SQL> select * from IT;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1003 Rahul                                  23 M                          
+                                                                                
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+      1008 Yudhajeet                              24 M                          
+                                                                                
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+      1011 Akanksha                               34 M                          
+jaipur                                                                          
+                                                                                
+
+12 rows selected.
+
+SQL> delete from IT where empid=1011;
+
+1 row deleted.
+
+SQL> select * from IT;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1003 Rahul                                  23 M                          
+                                                                                
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+      1008 Yudhajeet                              24 M                          
+                                                                                
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+
+11 rows selected.
+
+SQL> select count(empid),city from IT group by city;
+
+COUNT(EMPID) CITY                                                               
+------------ ----------------------------------------                           
+           1 Chennai                                                            
+           1 Pune                                                               
+           2 kolkata                                                            
+           1 Goa                                                                
+           1 delhi                                                              
+           2                                                                    
+           1 Cuttack                                                            
+           1 Agra                                                               
+           1 Darjeeling                                                         
+
+9 rows selected.
+
+SQL> select * from IT order by age;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1003 Rahul                                  23 M                          
+                                                                                
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+      1008 Yudhajeet                              24 M                          
+                                                                                
+                                                                                
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+
+11 rows selected.
+
+SQL> select * from IT_SALARY order by salary;
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY                                                                      
+----------                                                                      
+IT04                       1003 Rahul                                           
+     60000                                                                      
+                                                                                
+IT02                       1004 Nikita                                          
+     70000                                                                      
+                                                                                
+IT00                       1000 Adyasha                                         
+     80000                                                                      
+                                                                                
+
+DEPTID                    EMPID NAME                                            
+-------------------- ---------- ----------------------------------------        
+    SALARY                                                                      
+----------                                                                      
+IT05                       1005 Anusha                                          
+     85000                                                                      
+                                                                                
+IT03                       1002 Anoushka                                        
+     90000                                                                      
+                                                                                
+IT01                       1001 Anish                                           
+    200000                                                                      
+                                                                                
+
+6 rows selected.
+
+SQL> select * from IT_SALARY  union select * from SALARY;
+
+DEPTID                              EMPID                                       
+------------------------------ ----------                                       
+NAME                                         SALARY                             
+---------------------------------------- ----------                             
+IT00                                 1000                                       
+Adyasha                                       80000                             
+                                                                                
+IT01                                 1001                                       
+Anish                                        200000                             
+                                                                                
+IT02                                 1004                                       
+Nikita                                        70000                             
+                                                                                
+
+DEPTID                              EMPID                                       
+------------------------------ ----------                                       
+NAME                                         SALARY                             
+---------------------------------------- ----------                             
+IT03                                 1002                                       
+Anoushka                                      90000                             
+                                                                                
+IT04                                 1003                                       
+Rahul                                         60000                             
+                                                                                
+IT05                                 1005                                       
+Anusha                                        85000                             
+                                                                                
+
+6 rows selected.
+
+SQL> select count(empid),city from IT group by city having count(empid)>1;
+
+COUNT(EMPID) CITY                                                               
+------------ ----------------------------------------                           
+           2 kolkata                                                            
+           2                                                                    
+
+SQL> select * from IT where age between 20 and 30;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1003 Rahul                                  23 M                          
+                                                                                
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+      1008 Yudhajeet                              24 M                          
+                                                                                
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+
+11 rows selected.
+
+SQL> select * from IT where city is null;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1003 Rahul                                  23 M                          
+                                                                                
+                                                                                
+      1008 Yudhajeet                              24 M                          
+                                                                                
+                                                                                
+
+SQL> select * from IT where city is not null;
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1007 Rishabh                                26 M                          
+Pune                                                                            
+                                                                                
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+      1010 Ritesh                                 24 M                          
+kolkata                                                                         
+                                                                                
+
+9 rows selected.
+
+SQL> select count(city) from IT where city is not null;
+
+COUNT(CITY)                                                                     
+-----------                                                                     
+          9                                                                     
+
+SQL> select * from IT where empname like 'A%';
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+SQL> select * from IT where empname like '%A';
+
+no rows selected
+
+SQL> select * from IT where empname like '%a';
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1000 Adyasha                                22 F                          
+Cuttack                                                                         
+                                                                                
+      1002 Anoushka                               20 F                          
+delhi                                                                           
+                                                                                
+      1004 Nikita                                 24 F                          
+Goa                                                                             
+                                                                                
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1005 Anusha                                 20 F                          
+Agra                                                                            
+                                                                                
+
+SQL> select * from IT where empname like 'S%';
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1006 Stuti                                  25 F                          
+Chennai                                                                         
+                                                                                
+      1009 Shahbaz                                26 M                          
+Darjeeling                                                                      
+                                                                                
+
+
+SQL> select * from IT where exists(select * from IT_SALARY where IT_SALARY.empid=IT.empid and salary>=200000);
+
+     EMPID EMPNAME                               AGE GENDER                     
+---------- ------------------------------ ---------- ----------                 
+CITY                                                                            
+----------------------------------------                                        
+      1001 Anish                                  21 M                          
+kolkata                                                                         
+                                                                                
+
+SQL> select distinct city from IT;
+
+CITY                                                                            
+----------------------------------------                                        
+Chennai                                                                         
+Pune                                                                            
+kolkata                                                                         
+Goa                                                                             
+delhi                                                                           
+                                                                                
+Cuttack                                                                         
+Agra                                                                            
+Darjeeling                                                                      
+
+9 rows selected.
+
+SQL> spool out
